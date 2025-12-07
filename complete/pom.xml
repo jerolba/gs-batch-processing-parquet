@@ -21,7 +21,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-batch-jdbc</artifactId>
 		</dependency>
-
+        <dependency>
+            <groupId>com.jerolba</groupId>
+            <artifactId>carpet-record</artifactId>
+            <version>0.5.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
