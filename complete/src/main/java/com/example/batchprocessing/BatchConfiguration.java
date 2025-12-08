@@ -30,7 +30,7 @@ public class BatchConfiguration {
     // tag::readerwriterprocessor[]
     @Bean
     public ParquetItemReader<Person> reader() throws IOException {
-        InputFile inputFile = new FileSystemInputFile(new File("/tmp/processed-data.parquet"));
+        InputFile inputFile = new FileSystemInputFile(new File("/tmp/sample-data.parquet"));
         CarpetReader<Person> reader = new CarpetReader<>(inputFile, Person.class);
         return new ParquetItemReader<>(reader);
     }
@@ -74,7 +74,7 @@ public class BatchConfiguration {
 
     @Bean
     public Step step1(JobRepository jobRepository, DataSourceTransactionManager transactionManager,
-                      ParquetItemReader<Person> reader, PersonItemProcessor processor, CompositeItemWriter<Person> writer) {
+            ParquetItemReader<Person> reader, PersonItemProcessor processor, CompositeItemWriter<Person> writer) {
         return new StepBuilder(jobRepository)
                 .<Person, Person>chunk(3)
                 .transactionManager(transactionManager)
